@@ -50,4 +50,11 @@ public class MemberService {
         return memberRepository.findOne(memberId);
     }
 
+    // update 문에서 Member 를 반환하지 않은 이유 : command 성과 query 성을 구분하기 위한 목적의 설계
+    @Transactional
+    public void update(Long id, String name){
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
+    }
+
 }

@@ -7,11 +7,13 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
 #        show_sql: true -> sql 을 system out 으로 출력
         format_sql: true
+        # global 하게 적용하고 싶지 않으면 @BatchSize 를 활용할수도 있으나 global 하게 사용하는 것을 권장
+        default_batch_fetch_size: 100
 
 logging:
   level:
